@@ -9,6 +9,8 @@
 #include <string>
 #include <functional>
 
+#define ALPHA 0.8
+
 enum class HashType
 {
     MurmurHash2,
@@ -123,7 +125,7 @@ private:
     }
     bool needRehash() const
     {
-        return static_cast<double>(elementsNum) / table.size() >= 0.8;
+        return static_cast<double>(elementsNum) / table.size() >= ALPHA;
     }
     void rehash()
     {
