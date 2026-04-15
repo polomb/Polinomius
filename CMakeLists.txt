@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 option(BUILD_SAMPLES ON)
 
-set(PROJECT_NAME matrix)
+set(PROJECT_NAME unsorted_table)
 project(${PROJECT_NAME})
 
 include(CTest)
