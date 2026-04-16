@@ -1,7 +1,11 @@
 set(target ${MP2_TESTS})
 
+set(srcs
+    test_main.cpp
+    test_avl_tree.cpp
+)
+
 file(GLOB hdrs "*.h*")
-file(GLOB srcs "*.cpp")
 
 add_executable(${target} ${srcs} ${hdrs})
 target_link_libraries(${target} gtest ${MP2_LIBRARY})
