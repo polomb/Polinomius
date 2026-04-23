@@ -508,10 +508,10 @@ TEST_F(AVLStressTest, RandomOps200kAgainstSet) {
   AVLTree<int> tree;
   std::set<int> ref;
   std::mt19937 rng(2026);
-  std::uniform_int_distribution<int> keyDist(0, 20000);
+  std::uniform_int_distribution<int> keyDist(0, 2000000);
   std::uniform_int_distribution<int> opDist(0, 3);  // 0/1 insert, 2 erase, 3 find
 
-  constexpr int kOps = 200000;
+  constexpr int kOps = 400000;
   for (int i = 1; i <= kOps; ++i) {
     int key = keyDist(rng);
     int op = opDist(rng);

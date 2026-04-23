@@ -12,7 +12,7 @@
  *  узла v выполняется:
  *      |h(left(v)) - h(right(v))| <= 1
  *
- *  balance factor (балансовый фактор) b(v) = h(right) - h(left)
+ *  balance factor b(v) = h(right) - h(left)
  *  -1,0,1
  */ 
 
