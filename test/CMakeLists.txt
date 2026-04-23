@@ -2,7 +2,7 @@ set(target ${MP2_TESTS})
 
 set(srcs
     test_main.cpp
-    test_avl_tree.cpp
+    test_hash_map.cpp
 )
 
 file(GLOB hdrs "*.h*")

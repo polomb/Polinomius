@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 option(BUILD_SAMPLES ON)
 
-set(PROJECT_NAME avl_tree)
+set(PROJECT_NAME hash_map)
 project(${PROJECT_NAME})
 
 include(CTest)
