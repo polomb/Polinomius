@@ -252,12 +252,20 @@ public:
         }
 
         bool operator==(const Iterator& other) const {
-            if (bucketIdx >= bucketCount && other.bucketIdx >= other.bucketCount)
-                return true;
-            return bucketIdx == other.bucketIdx && listIt == other.listIt;
+        if (buckets != other.buckets) return false;
+        
+        bool thisIsEnd = (bucketIdx >= bucketCount);
+        bool otherIsEnd = (other.bucketIdx >= other.bucketCount);
+        
+        if (thisIsEnd && otherIsEnd) return true;
+        if (thisIsEnd || otherIsEnd) return false;
+        
+        return bucketIdx == other.bucketIdx && listIt == other.listIt;
         }
 
-        bool operator!=(const Iterator& other) const { return !(*this == other); }
+        bool operator!=(const Iterator& other) const { 
+        return !(*this == other); 
+        }
     };
 
     Iterator begin() {
