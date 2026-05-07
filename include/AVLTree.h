@@ -49,6 +49,30 @@ public:
     int  height() const { return getHeight(root_); }
     void clear()        { destroyTree(root_); root_ = nullptr; size_ = 0; }
 
+    const Key& operator[](int index) const {
+    if (index < 0 || index >= size_) {
+        throw std::out_of_range("Index out of range");
+    }
+    
+    Node* current = root_;
+    int leftCount = 0;
+    
+    while (current) {
+        leftCount = getNodeCount(current->left);
+        
+        if (index < leftCount) {
+            current = current->left;
+        } else if (index > leftCount) {
+            index -= leftCount + 1;
+            current = current->right;
+        } else {
+            return current->key;
+        }
+    }
+    
+    throw std::out_of_range("Index not found");
+}
+
     class Iterator {
     public:
         using iterator_category = std::forward_iterator_tag;
@@ -258,4 +282,9 @@ private:
         if (node->height != expected) return false;
         return checkAVL(node->left) && checkAVL(node->right);
     }
+
+    int getNodeCount(const Node* node) const {
+    if (!node) return 0;
+    return 1 + getNodeCount(node->left) + getNodeCount(node->right);
+}
 };
